@@ -1,0 +1,6 @@
+/.envrc
+/ssh_config
+/inventory
+/terraform.tfvars
+/terraform.tfstate
+/terraform.tfstate.backup

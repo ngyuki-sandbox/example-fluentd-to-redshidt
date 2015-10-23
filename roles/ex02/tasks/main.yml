@@ -1,0 +1,17 @@
+---
+
+- setup:
+  when: inventory_hostname in ['sv03']
+
+- copy: src=sysconfig dest=/etc/sysconfig/td-agent
+  notify: td-agent restart
+
+- template: src=ap_server/td-agent.conf dest=/etc/td-agent/td-agent.conf
+  when: inventory_hostname in ['sv01', 'sv02']
+  notify: td-agent restart
+
+- template: src=log_server/td-agent.conf dest=/etc/td-agent/td-agent.conf
+  when: inventory_hostname in ['sv03']
+  notify: td-agent restart
+
+- service: name=td-agent state=started

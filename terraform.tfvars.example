@@ -1,0 +1,3 @@
+ami="ami-b80b6db8"
+key_name="oreore"
+iam_instance_profile="ore-no-instance"
